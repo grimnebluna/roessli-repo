@@ -9,7 +9,7 @@ const concat = require('gulp-concat');
 // Assuming FancyBox CSS is available in node_modules/fancybox/dist/jquery.fancybox.css
 // and Lenis does not require a CSS file
 function cssTask() {
-    return src(['src/fancybox/fancybox.min.css', 'src/roessli.scss'])
+    return src(['src/roessli.scss'])
         .pipe(sourcemaps.init())
         .pipe(sass().on('error', sass.logError))
         .pipe(concat('all.min.css'))
@@ -20,8 +20,6 @@ function cssTask() {
 
 function jsTask() {
     return src([
-            'node_modules/@studio-freight/lenis/dist/lenis.min.js',
-            'src/fancybox/fancybox.min.js',
             'src/roessli.js'
         ])
         .pipe(sourcemaps.init())
