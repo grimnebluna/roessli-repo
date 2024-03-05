@@ -4,31 +4,36 @@ const rename = require('gulp-rename');
 const sass = require('gulp-sass')(require('sass'));
 const cleanCSS = require('gulp-clean-css');
 const sourcemaps = require('gulp-sourcemaps');
+const concat = require('gulp-concat');
 
-function jsTask() {
-    return src('src/*.js')
-        .pipe(sourcemaps.init())
-        .pipe(uglify())
-        .pipe(rename({ suffix: '.min' }))
-        .pipe(sourcemaps.write('.'))
-        .pipe(dest('build/'));
-}
-
+// Assuming FancyBox CSS is available in node_modules/fancybox/dist/jquery.fancybox.css
+// and Lenis does not require a CSS file
 function cssTask() {
-    return src('src/*.scss')
+    return src(['node_modules/fancybox/dist/css/jquery.fancybox.css', 'src/*.scss'])
         .pipe(sourcemaps.init())
         .pipe(sass().on('error', sass.logError))
+        .pipe(concat('all.min.css'))
         .pipe(cleanCSS())
-        .pipe(rename({ suffix: '.min' }))
         .pipe(sourcemaps.write('.'))
         .pipe(dest('build/'));
 }
 
-// Define a watch task
+function jsTask() {
+    return src([
+            'node_modules/@studio-freight/lenis/dist/lenis.min.js',
+            'node_modules/fancybox/dist/js/jquery.fancybox.pack.js',
+            'src/*.js'
+        ])
+        .pipe(sourcemaps.init())
+        .pipe(concat('all.min.js'))
+        .pipe(uglify())
+        .pipe(sourcemaps.write('.'))
+        .pipe(dest('build/'));
+}
+
 function watchTask() {
     watch('src/*.js', jsTask);
     watch('src/*.scss', cssTask);
 }
 
-// Using 'series' here to ensure that the watchTask gets a name in the log output
 exports.default = series(parallel(jsTask, cssTask), watchTask);
