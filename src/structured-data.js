@@ -208,6 +208,13 @@ const languageConfigs = {
     hotel: {
       "@type": "Hotel",
       name: "Hotel Rössli Gourmet & Spa",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "Seestrasse 52",
+        addressLocality: "Weggis",
+        postalCode: "6353",
+        addressCountry: "CH"
+      },
       url: "https://www.roessli.ch",
       image: "https://cdn.prod.website-files.com/647603ee27706cf45c087bb6/649c6b8bc0c864a762c76f84_hotelroesslifull.webp",
       description: "Unser 4-Sterne-Hotel Rössli in Weggis liegt an ruhiger Lage direkt an der Seepromenade. Eine Oase, geprägt von einem grosszügigen SPA-Bereich und einer exquisiten Gourmetküche.",
@@ -416,6 +423,13 @@ const languageConfigs = {
     hotel: {
       "@type": "Hotel",
       name: "Hotel Rössli Gourmet & Spa",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "Seestrasse 52",
+        addressLocality: "Weggis",
+        postalCode: "6353",
+        addressCountry: "CH"
+      },
       url: "https://www.roessli.ch/en/home",
       image: "https://cdn.prod.website-files.com/647603ee27706cf45c087bb6/649c6b8bc0c864a762c76f84_hotelroesslifull.webp",
       description: "Our wonderful 4-star hotel directly on Lake Lucerne. A place characterized by a diverse spa area and exquisite gourmet cuisine.",
