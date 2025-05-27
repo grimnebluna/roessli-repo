@@ -29,9 +29,18 @@ function jsTask() {
         .pipe(dest('build/'));
 }
 
+function structuredDataTask() {
+    return src('src/structured-data.js')
+        .pipe(sourcemaps.init())
+        .pipe(uglify())
+        .pipe(rename('structured-data.min.js'))
+        .pipe(sourcemaps.write('.'))
+        .pipe(dest('build/'));
+}
+
 function watchTask() {
-    watch('src/*.js', jsTask);
+    watch('src/*.js', parallel(jsTask, structuredDataTask));
     watch('src/*.scss', cssTask);
 }
 
-exports.default = series(parallel(jsTask, cssTask), watchTask);
+exports.default = series(parallel(jsTask, cssTask, structuredDataTask), watchTask);
