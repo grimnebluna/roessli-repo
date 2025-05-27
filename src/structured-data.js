@@ -312,7 +312,14 @@ const languageConfigs = {
       parentOrganization: {
         "@type": "Hotel",
         name: "Hotel Rössli Gourmet & Spa",
-        url: "https://www.roessli.ch/de/hotel"
+        url: "https://www.roessli.ch/de/hotel",
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: "Seestrasse 52",
+          addressLocality: "Weggis",
+          postalCode: "6353",
+          addressCountry: "CH"
+        }
       },
       acceptsReservations: true,
       menu: "https://www.roessli.ch/speisekarte.pdf",
@@ -367,7 +374,14 @@ const languageConfigs = {
       parentOrganization: {
         "@type": "Hotel",
         name: "Hotel Rössli Gourmet & Spa",
-        url: "https://www.roessli.ch/de/hotel"
+        url: "https://www.roessli.ch/de/hotel",
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: "Seestrasse 52",
+          addressLocality: "Weggis",
+          postalCode: "6353",
+          addressCountry: "CH"
+        }
       },
       openingHours: "Mo-Su 10:00-19:30",
       openingHoursSpecification: [
@@ -527,7 +541,14 @@ const languageConfigs = {
       parentOrganization: {
         "@type": "Hotel",
         name: "Hotel Rössli Gourmet & Spa",
-        url: "https://www.roessli.ch/en/hotel"
+        url: "https://www.roessli.ch/en/hotel",
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: "Seestrasse 52",
+          addressLocality: "Weggis",
+          postalCode: "6353",
+          addressCountry: "CH"
+        }
       },
       acceptsReservations: true,
       menu: "https://www.roessli.ch/speisekarte.pdf",
@@ -582,7 +603,14 @@ const languageConfigs = {
       parentOrganization: {
         "@type": "Hotel",
         name: "Hotel Rössli Gourmet & Spa",
-        url: "https://www.roessli.ch/en/hotel"
+        url: "https://www.roessli.ch/en/hotel",
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: "Seestrasse 52",
+          addressLocality: "Weggis",
+          postalCode: "6353",
+          addressCountry: "CH"
+        },
       },
       openingHours: "Mo-Su 10:00-19:30",
       openingHoursSpecification: [
