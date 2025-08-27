@@ -31,14 +31,19 @@ if (transstr && transstr !== "") {
  if( jQuery('body').attr("lang") == 'en') {
 
   if(transstr == '/') {
+    const currentParams = window.location.search;
+    const notDetectionParam = currentParams ? currentParams + '&notdetection=1' : '?notdetection=1';
+    const newHref = '/' + notDetectionParam;
     
-	jQuery('.deenlink.de').attr('href', '/?notdetection=1');
-	jQuery('.deenlinkoverlay.de').attr('href', '/?notdetection=1');
+	jQuery('.deenlink.de').attr('href', newHref);
+	jQuery('.deenlinkoverlay.de').attr('href', newHref);
 
   } else {
+    const currentParams = window.location.search;
+    const transstrWithParams = transstr + currentParams;
 
-	jQuery('.deenlink.de').attr('href', transstr);
-	jQuery('.deenlinkoverlay.de').attr('href', transstr);
+	jQuery('.deenlink.de').attr('href', transstrWithParams);
+	jQuery('.deenlinkoverlay.de').attr('href', transstrWithParams);
 
   }
 
@@ -51,8 +56,10 @@ if (transstr && transstr !== "") {
  } else {
    
 
-	jQuery('.deenlink.en').attr('href', transstr);
-	jQuery('.deenlinkoverlay.en').attr('href', transstr);
+    const currentParams = window.location.search;
+    const transstrWithParams = transstr + currentParams;
+	jQuery('.deenlink.en').attr('href', transstrWithParams);
+	jQuery('.deenlinkoverlay.en').attr('href', transstrWithParams);
 	jQuery('.deenlink.de').attr('href', window.location.href);
 	jQuery('.deenlinkoverlay.de').attr('href', window.location.href);
 	jQuery('.deenlink.de').addClass('curr');
