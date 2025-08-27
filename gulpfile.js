@@ -44,4 +44,4 @@ function watchTask() {
 }
 
 
-exports.default = series(parallel(jsTask, cssTask, structuredDataTask), watchTask);
+exports.default = series(parallel(jsTask, cssTask, structuredDataTask));
