@@ -13,9 +13,13 @@
         "2024-01-15", "2024-01-16", "2024-01-17", "2024-01-18",
         "2024-01-19", "2024-01-20", "2024-01-21", "2024-01-22",
         "2024-01-23", "2024-01-24", "2024-01-25", "2024-01-26",
-        "2024-01-27", "2024-01-28", "2025-12-21", "2025-12-24", 
-        "2025-12-25"];
-        return rdatedData.includes(date.toISOString().substring(0, 10));
+        "2024-01-27", "2024-01-28", "2025-12-22", "2025-12-25", 
+        "2025-12-26"];
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const day = String(date.getDate()).padStart(2, '0');
+        const dateString = `${year}-${month}-${day}`;
+        return rdatedData.includes(dateString);
     }
   
   
