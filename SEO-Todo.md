@@ -17,7 +17,7 @@ Based on Lighthouse audit of roessli.ch/de/hotel (2026-03-19, mobile 3G simulati
 - Should only load when user interacts with a form
 - Consider using reCAPTCHA v3 lazy loading or loading on form focus
 
-### 3. Lazy-load Mailchimp JS (est. ~140KB saved)
+### 3. Lazy-load Mailchimp JS (est. ~140KB saved) **DONE**
 - `mc-validate.js` (143KB) loaded on every page
 - Only needed when newsletter form is visible/interacted with
 
