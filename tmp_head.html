@@ -1,0 +1,53 @@
+<!-- Google Tag Manager -->
+<script>
+  
+  window.gtmReady = false;
+  window.dataLayer = window.dataLayer || [];
+  var originalPush = window.dataLayer.push;
+  window.dataLayer.push = function(obj) {
+    originalPush.apply(this, arguments);
+    if (obj && obj.event === 'gtm.js') {
+      window.gtmReady = true;
+      console.log('GTM is now ready (detected via dataLayer)');
+    }
+  };
+
+  // Method 2: Backup check - poll for GTM objects with a timeout
+  var gtmCheckInterval;
+  var timeoutDuration = 10000; // 10 seconds
+  var startTime = Date.now();
+
+  function checkGTM() {
+    if (window.google_tag_manager && window.google_tag_manager['GTM-NDFR69G']) {
+      window.gtmReady = true;
+      console.log('GTM is now ready (detected via polling)');
+      clearInterval(gtmCheckInterval);
+    } else if (Date.now() - startTime > timeoutDuration) {
+      console.log('GTM check timed out.');
+      clearInterval(gtmCheckInterval);
+    }
+  }
+
+  gtmCheckInterval = setInterval(checkGTM, 100);
+  
+  
+</script>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://sgtm.roessli.ch/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NDFR69G');</script>
+<!-- End Google Tag Manager -->
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<script src="https://cdn.jsdelivr.net/gh/grimnebluna/roessli-repo@v0.0.95/build/structured-data.min.js"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/grimnebluna/roessli-repo@v0.0.95/build/all.min.css">
+
+<meta name="google-site-verification" content="y3xjj4aU8g_s6FhnCBAogOjXQJr76ug8usJmUvg1r0s" />
+<meta name="google-site-verification" content="ghEQClDw69hXtVzNqLzBvr2IUUtNkTW4XZTy7QZlVOo" />
+
+
+
