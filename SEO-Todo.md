@@ -6,7 +6,7 @@ Based on Lighthouse audit of roessli.ch/de/hotel (2026-03-19, mobile 3G simulati
 
 ## High priority
 
-### 1. Subset fonts to WOFF2 (est. ~800KB saved)
+### 1. Subset fonts to WOFF2 (est. ~800KB saved)  **DONE (except Open Sans)**
 - NotoSans-Medium: 481KB (full character set)
 - NotoSerifDisplay: 388KB (full character set)
 - Subsetting to latin-only WOFF2 would reduce each to ~20-40KB
@@ -21,7 +21,7 @@ Based on Lighthouse audit of roessli.ch/de/hotel (2026-03-19, mobile 3G simulati
 - `mc-validate.js` (143KB) loaded on every page
 - Only needed when newsletter form is visible/interacted with
 
-### 4. Fix JS syntax error
+### 4. Fix JS syntax error  **DONE**
 - Console error: `SyntaxError: Unexpected token ','`
 - Track down and fix — may affect functionality
 
