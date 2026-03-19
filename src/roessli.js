@@ -36,9 +36,9 @@ if (transstr && transstr !== "") {
  if( jQuery('body').attr("lang") == 'en') {
 
   if(transstr == '/') {
-    const currentParams = window.location.search;
-    const notDetectionParam = currentParams ? currentParams + '&notdetection=1' : '?notdetection=1';
-    const newHref = '/' + notDetectionParam;
+    const params = new URLSearchParams(window.location.search);
+    params.set('notdetection', '1');
+    const newHref = '/?' + params.toString();
     
 	jQuery('.deenlink.de').attr('href', newHref);
 	jQuery('.deenlinkoverlay.de').attr('href', newHref);
