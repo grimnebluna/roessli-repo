@@ -1,15 +1,15 @@
 const { src, dest, parallel, series, watch } = require('gulp');
-const uglify = require('gulp-uglify');
+const terser = require('gulp-terser');
 const rename = require('gulp-rename');
 const sass = require('gulp-sass')(require('sass'));
 const cleanCSS = require('gulp-clean-css');
 const sourcemaps = require('gulp-sourcemaps');
 const concat = require('gulp-concat');
-
-// Assuming FancyBox CSS is available in node_modules/fancybox/dist/jquery.fancybox.css
-// and Lenis does not require a CSS file
 function cssTask() {
-    return src(['src/roessli.scss'])
+    return src([
+            'node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.css',
+            'src/roessli.scss'
+        ])
         .pipe(sourcemaps.init())
         .pipe(sass().on('error', sass.logError))
         .pipe(concat('all.min.css'))
@@ -20,11 +20,13 @@ function cssTask() {
 
 function jsTask() {
     return src([
+            'node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.js',
+            'node_modules/@studio-freight/lenis/dist/lenis.min.js',
             'src/roessli.js'
         ])
         .pipe(sourcemaps.init())
         .pipe(concat('all.min.js'))
-        .pipe(uglify())
+        .pipe(terser())
         .pipe(sourcemaps.write('.'))
         .pipe(dest('build/'));
 }
@@ -32,7 +34,7 @@ function jsTask() {
 function structuredDataTask() {
     return src('src/structured-data.js')
         .pipe(sourcemaps.init())
-        .pipe(uglify())
+        .pipe(terser())
         .pipe(rename('structured-data.min.js'))
         .pipe(sourcemaps.write('.'))
         .pipe(dest('build/'));
